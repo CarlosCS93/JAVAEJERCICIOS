@@ -7,11 +7,9 @@ package Entidad;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Usuario
- */
+
 public class Perro {
+
     private String nombre;
     private String raza;
     private int edad;
@@ -36,7 +34,6 @@ public class Perro {
     public void setPerros(ArrayList<Perro> perros) {
         this.perros = perros;
     }
-
     
     public String getNombre() {
         return nombre;

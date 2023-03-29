@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Servicio">
+  <ClassDiagramComponents>
+    <Class name="ServicioBaraja" package="Servicio" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="cartas" type="Baraja" visibility="private"/>
+        <Field name="mazo" type="ArrayList&lt;Baraja&gt;" visibility="private"/>
+        <Field name="scan" type="Scanner" visibility="private"/>
+        <Field name="monton" type="ArrayList&lt;Baraja&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cartasDisponibles" returnType="void" visibility="public"/>
+        <Method name="mostrarCartas" returnType="void" visibility="public"/>
+        <Method name="escogerCarta" returnType="void" visibility="public"/>
+        <Method name="barajarCartas" returnType="void" visibility="public"/>
+        <Method name="siguienteCarta" returnType="void" visibility="public"/>
+        <Method name="darCartas" returnType="void" visibility="public"/>
+        <Method name="cartasMonton" returnType="void" visibility="public"/>
+        <Method name="barajaInglesa" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

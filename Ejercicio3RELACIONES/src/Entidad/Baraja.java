@@ -19,19 +19,13 @@ luego se llama al método, este no mostrara esa primera carta.
  */
 package Entidad;
 
-import Entidad.ENUMS.Palo;
 import java.util.ArrayList;
 
-/**
- *
- * @author Usuario
- */
 public class Baraja {
 
     private int numero;
     private String palos;
 
-    
     public Baraja() {
 
     }
@@ -45,7 +39,7 @@ public class Baraja {
     public ArrayList generarCartas() {
 
         String figuras[] = {"ESPADAS", "BASTOS", "OROS", "COPAS"};
-        
+
         ArrayList<Baraja> baraja = new ArrayList();
 
         for (int i = 0; i < figuras.length; i++) {
@@ -56,7 +50,26 @@ public class Baraja {
                 }
             }
         }
-      return baraja;
+        
+        return baraja;
+        
+        
+        /*ArrayList<Baraja> barajass = new ArrayList();
+
+        Random random = new Random();
+
+        Palo[] paloss = Palo.values();
+
+        for (int j = 1; j < 13; j++) {
+            this.palos = paloss[random.nextInt(4)].toString();
+            if (j != 8 && j != 9) {
+                barajass.add(new Baraja(j, palos));
+            }
+        }
+
+        return barajass;*/
+
+        
     }
 
     @Override

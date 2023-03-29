@@ -16,9 +16,7 @@ import java.util.ArrayList;
  */
 public class Ejercicio1RELACIONES {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         
         ServicioAdopcion sa = new ServicioAdopcion();
