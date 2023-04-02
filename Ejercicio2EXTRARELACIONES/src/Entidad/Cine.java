@@ -24,63 +24,70 @@ package Entidad;
 
 import Libreria.Consola;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-/**
- *
- * @author Usuario
- */
 public class Cine {
 
     private Cine[][] salaCine;
-    private ArrayList<Pelicula> peliculas;
     private int num;
     private String letra;
     private double precioEntrada;
-    private Pelicula pelicula;
-    private Espectador espectador;
     private ArrayList<Pelicula> cartelera;
     private ArrayList<Espectador> personas;
+    private String asiento;
+    private Espectador gente;
+    private Pelicula movies;
 
     public Cine() {
 
+        this.asiento = asiento;
+        gente = new Espectador();
+        movies = new Pelicula();
         salaCine = new Cine[8][6];
-        pelicula = new Pelicula();
-        espectador = new Espectador();
-        cartelera = pelicula.cartelera();
-        personas = espectador.espectadores();
+        cartelera = movies.cartelera();
+        personas = gente.espectadores();
+        this.precioEntrada = 3.8;
+//crearsalaCine();
     }
 
-    public Cine(int num, String letra) {
+    public Cine(int num, String letra, String asiento) {
         this.num = num;
         this.letra = letra;
+        this.asiento = asiento;
+        this.precioEntrada = 3.8;
     }
 
-    public void crearsalaCine() {
+    public Cine[][] crearsalaCine() {
 
-        int n = 8;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < salaCine.length; i++) {
+            for (int j = 0; j < salaCine[0].length; j++) {
                 String[] l = {"A", "B", "C", "D", "E", "F"};
-                String le = l[j];
-                salaCine[i][j] = new Cine((n - i), le);
+                this.letra = l[j];
+                this.asiento = "";
+                this.salaCine[i][j] = new Cine((this.num = salaCine.length - i), this.letra, this.asiento);
             }
         }
+        return salaCine;
     }
 
     public void mostrarSala() {
 
-        crearsalaCine();
-
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 6; j++) {
-                System.out.print("[ " + salaCine[i][j] + " ]");
+        for (int i = 0; i < salaCine.length; i++) {
+            for (int j = 0; j < salaCine[0].length; j++) {
+                System.out.print("[ " + this.salaCine[i][j] + " ]");
             }
             System.out.println(" ");
         }
+    }
+
+    public boolean precioEntradas() {
+
+        return new Espectador().getDinero() >= this.precioEntrada;
+
+    }
+
+    public boolean edadMinima() {
+
+        return new Espectador().getEdad() >= new Pelicula().getEdadMinima();
     }
 
     public void mostrarCartelera() {
@@ -99,7 +106,9 @@ public class Cine {
 
     }
 
-    public void asignarAsiento() {
+    public boolean asignarAsiento() {
+
+        boolean asignacion = false;
 
         String nombrePeli = Consola.leer("Escoja una pelicula");
         String nombrePersona = Consola.leer("Escriba su nombre");
@@ -107,8 +116,16 @@ public class Cine {
             if (nombrePeli.equalsIgnoreCase(cartelera.get(j).getTitulo())) {
                 for (int i = 0; i < personas.size(); i++) {
                     if (nombrePersona.equalsIgnoreCase(personas.get(i).getNombre())) {
+                        System.out.println(personas.get(i).getNombre());
                         if (personas.get(i).getEdad() >= cartelera.get(j).getEdadMinima()) {
-                            Consola.escribirSinSaltar("Cumple con la edad minima");
+                            System.out.println(personas.get(i).getDinero());
+                            System.out.println(this.precioEntrada);
+                            if (personas.get(i).getDinero() >= this.precioEntrada) {
+                                asignacion = true;
+                            } else {
+                                Consola.escribir("No dispone del dinero suficiente");
+                                break;
+                            }
 
                         } else {
                             Consola.escribir("No cumple con la edad minima para ver esta Pelicula");
@@ -118,16 +135,94 @@ public class Cine {
                 }
 
             }
-
         }
         System.out.println("");
 
+        return asignacion;
     }
 
+    public boolean asientoOcupado() {
+        return this.asiento.equals("");
+    }
+
+    public void escogerAsiento() {
+
+        if (asignarAsiento()) {
+            Consola.escribir("Seleccione el asiento");
+
+            mostrarSala();
+
+            int numeral = Consola.leerEntero("FILA ");
+            String letra = Consola.leer("COLUMNA ");
+
+            for (int i = 0; i < this.salaCine.length; i++) {
+                for (int j = 0; j < this.salaCine[0].length; j++) {
+                    String[] l = {"A", "B", "C", "D", "E", "F"};
+                    this.letra = l[j];
+                    if (letra.equals(this.letra)) {
+                        int aux = j;
+                        if ((this.salaCine.length - numeral) == i && aux == j) {
+                            if (this.salaCine[i][j].asientoOcupado()) {
+                                this.asiento = "X";
+                                this.salaCine[i][j] = new Cine((this.salaCine.length - i), this.letra, this.asiento);
+                                break;
+                            } else {
+                                System.out.println("ASIENTO OCUPADO");
+                                break;
+                            }
+                        }
+                    }
+                }
+                break;
+            }
+        }
+
+    }
+
+
+    /*public void aplicacionCine() {
+
+        do {
+            System.out.println("======SUPERCINES=======");
+            System.out.println(" CARTELERA");
+
+            mostrarCartelera();
+
+            System.out.println("1. SELECCIONAR PELICULA");
+            System.out.println("2. LLENAR DATOS");
+            System.out.println("3. CANTIDAD DE ENTRADAS");
+            System.out.println("4. SELECCIONAR ASIENTOS");
+            System.out.println("5. SALIR");
+            int opcion = Consola.leerEntero("Ingrese su opcion");
+
+            switch (opcion) {
+                case 1:
+                    for (int j = 0; j < cartelera.size(); j++) {
+                        if (nombrePeli.equalsIgnoreCase(cartelera.get(j).getTitulo())) {
+                        }
+                    }
+                    break;
+
+                case 2:
+                    String nombrePersona = Consola.leer("Escriba su nombre");
+                    int edadPersona nombrePersona = Consola.leer("Escriba su nombre");
+                    double dinerobolsillo
+                            = breck;
+                case 3:
+
+                    if (precioEntradas()) {
+
+                    }
+
+            }
+
+        } while (true);
+
+    }*/
     @Override
 
     public String toString() {
-        return num + letra;
+        return num + letra + asiento;
     }
 
 }

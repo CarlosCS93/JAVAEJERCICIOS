@@ -14,21 +14,16 @@ ocupado se muestra una X, sino un espacio vacío.
 package Entidad;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-/**
- *
- * @author Usuario
- */
 public class Pelicula {
 
     private String titulo;
     private int duracion;
     private int edadMinima;
     private String director;
-    private Scanner scan;
 
     public Pelicula() {
+
     }
 
     public Pelicula(String titulo, int duracion, int edadMinima, String director) {
@@ -39,58 +34,24 @@ public class Pelicula {
 
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public int getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
-    }
-
     public int getEdadMinima() {
         return edadMinima;
     }
 
-    public void setEdadMinima(int edadMinima) {
-        this.edadMinima = edadMinima;
+    public String getTitulo() {
+        return titulo;
     }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public Scanner getScan() {
-        return scan;
-    }
-
-    public void setScan(Scanner scan) {
-        this.scan = scan;
-    }
-
     
-    
-    
+
     public ArrayList cartelera() {
 
         ArrayList<Pelicula> cartelera = new ArrayList();
 
-        Pelicula peli1 = new Pelicula("Zootopia", 2, 8, "evelin");
+        Pelicula peli1 = new Pelicula("Zootopia          ", 2, 15, "evelin");
         Pelicula peli2 = new Pelicula("Rapidos y Furiosos", 3, 12, "luna");
-        Pelicula peli3 = new Pelicula("Cars", 2, 12, "carlos");
-        Pelicula peli4 = new Pelicula("Noches de Terror", 1, 16, "iliana");
-        Pelicula peli5 = new Pelicula("Avengers Endgame", 3, 12, "mia khalifa");
+        Pelicula peli3 = new Pelicula("Cars"              , 2, 12, "carlos");
+        Pelicula peli4 = new Pelicula("Noches de Terror"  , 1, 22, "iliana");
+        Pelicula peli5 = new Pelicula("Avengers Endgame"  , 3, 35, "mia khalifa");
 
         Pelicula[] auxi = {peli1, peli2, peli3, peli4, peli5};
 
@@ -103,10 +64,7 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Cartelera{" + "Titulo Pelicula= " + titulo + "     , Duracion= " + duracion + ", EdadMinima= " + edadMinima +" años "+ ", Director=" + director + '}';
+        return "Cartelera{" + "Titulo Pelicula= " + titulo + "     , Duracion= " + duracion + ", EdadMinima= " + edadMinima + " años " + ", Director=" + director + '}';
     }
 
-    
-    
-    
 }
