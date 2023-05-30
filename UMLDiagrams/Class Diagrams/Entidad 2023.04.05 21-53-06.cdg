@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidad">
+  <ClassDiagramComponents>
+    <Class name="Animal" package="Entidad" visibility="public" xPosition="441.0" yPosition="16.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="alimento" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="razas" type="Raza" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="alimento"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="Raza" name="razas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getAlimento" returnType="String" visibility="public"/>
+        <Method name="setAlimento" returnType="void" visibility="public">
+          <Argument type="String" name="alimento"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="getRaza" returnType="Raza" visibility="public"/>
+        <Method name="setRaza" returnType="void" visibility="public">
+          <Argument type="Raza" name="razas"/>
+        </Method>
+        <Method name="alimentarse" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Caballo" package="Entidad" visibility="public" xPosition="1.0" yPosition="468.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="alimento"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="Raza" name="razas"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Gato" package="Entidad" visibility="public" xPosition="447.0" yPosition="559.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="alimento"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="Raza" name="razas"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Perro" package="Entidad" visibility="public" xPosition="922.0" yPosition="540.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="alimento"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="Raza" name="razas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="alimentarse" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Raza" package="Entidad" visibility="public" xPosition="72.0" yPosition="80.0">
+      <Literals>
+        <Literal name="POODLE"/>
+        <Literal name="GATO"/>
+        <Literal name="FINO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Entidad.Gato" target="Entidad.Animal"/>
+    <HasRelation name="razas" source="Entidad.Animal" target="Entidad.Raza" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidad.Animal" target="Entidad.Raza" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entidad.Caballo" target="Entidad.Animal"/>
+    <IsRelation name="is" source="Entidad.Perro" target="Entidad.Animal"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

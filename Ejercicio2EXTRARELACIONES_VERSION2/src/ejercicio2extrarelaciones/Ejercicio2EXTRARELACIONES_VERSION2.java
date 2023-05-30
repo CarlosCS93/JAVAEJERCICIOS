@@ -11,13 +11,13 @@ public class Ejercicio2EXTRARELACIONES_VERSION2 {
         c.mostrarCartelera();
         c.mostrarEspectadores();
 
-
         int n = 0;
         while (n < 20) {
             c.escogerAsiento();
             n++;
         }
-
+        System.out.println("SALA CON ESPECTADORES");
+        c.mostrarSala();
     }
 
 }

@@ -139,8 +139,8 @@ public class Cine {
 
         String[] letras = {"A", "B", "C", "D", "E", "F"};
 
-        this.salaCine[i][j] = new Cine((this.salaCine.length - i), this.letra = letras[j], this.asiento);
-        mostrarSala();
+        this.salaCine[i][j] = new Cine((this.salaCine.length - i), this.letra = letras[j], this.asiento= "X");
+        //mostrarSala();
         System.out.println("");
 
     }

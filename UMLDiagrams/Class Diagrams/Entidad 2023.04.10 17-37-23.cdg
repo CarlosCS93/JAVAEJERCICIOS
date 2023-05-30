@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidad">
+  <ClassDiagramComponents>
+    <Class name="Alquiler" package="Entidad" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="documentoCliente" type="int" visibility="private"/>
+        <Field name="fechaAlquiler" type="Date" visibility="private"/>
+        <Field name="fechaDevolucion" type="Date" visibility="private"/>
+        <Field name="posicionAmarre" type="int" visibility="private"/>
+        <Field name="barcoAlquilado" type="Barco" visibility="private"/>
+        <Field name="scan" type="Scanner" visibility="private"/>
+        <Field name="diasAlquiler" type="long" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="documentoCliente"/>
+          <Argument type="Date" name="fechaAlquiler"/>
+          <Argument type="Date" name="fechaDevolucion"/>
+          <Argument type="int" name="posicionAmarre"/>
+          <Argument type="Barco" name="barcoAlquilado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getScan" returnType="Scanner" visibility="public"/>
+        <Method name="setScan" returnType="void" visibility="public">
+          <Argument type="Scanner" name="scan"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDocumentoCliente" returnType="int" visibility="public"/>
+        <Method name="setDocumentoCliente" returnType="void" visibility="public">
+          <Argument type="int" name="documentoCliente"/>
+        </Method>
+        <Method name="getFechaAlquiler" returnType="Date" visibility="public"/>
+        <Method name="setFechaAlquiler" returnType="void" visibility="public">
+          <Argument type="Date" name="fechaAlquiler"/>
+        </Method>
+        <Method name="getFechaDevolucion" returnType="Date" visibility="public"/>
+        <Method name="setFechaDevolucion" returnType="void" visibility="public">
+          <Argument type="Date" name="fechaDevolucion"/>
+        </Method>
+        <Method name="getPosicionAmarre" returnType="int" visibility="public"/>
+        <Method name="setPosicionAmarre" returnType="void" visibility="public">
+          <Argument type="int" name="posicionAmarre"/>
+        </Method>
+        <Method name="getBarcoAlquilado" returnType="Barco" visibility="public"/>
+        <Method name="setBarcoAlquilado" returnType="void" visibility="public">
+          <Argument type="Barco" name="barcoAlquilado"/>
+        </Method>
+        <Method name="getDiasAlquiler" returnType="long" visibility="public"/>
+        <Method name="setDiasAlquiler" returnType="void" visibility="public">
+          <Argument type="long" name="diasAlquiler"/>
+        </Method>
+        <Method name="llenarFormulario" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Barco" package="Entidad" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="matricula" type="int" visibility="private"/>
+        <Field name="eslora" type="int" visibility="private"/>
+        <Field name="anioFabricacion" type="int" visibility="private"/>
+        <Field name="alquilerAmarre" type="Alquiler" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFabricacion"/>
+          <Argument type="Alquiler" name="alquilerAmarre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAlquilerAmarre" returnType="Alquiler" visibility="public"/>
+        <Method name="setAlquilerAmarre" returnType="void" visibility="public">
+          <Argument type="Alquiler" name="alquilerAmarre"/>
+        </Method>
+        <Method name="getMatricula" returnType="int" visibility="public"/>
+        <Method name="setMatricula" returnType="void" visibility="public">
+          <Argument type="int" name="matricula"/>
+        </Method>
+        <Method name="getEslora" returnType="int" visibility="public"/>
+        <Method name="setEslora" returnType="void" visibility="public">
+          <Argument type="int" name="eslora"/>
+        </Method>
+        <Method name="getAnioFabricacion" returnType="int" visibility="public"/>
+        <Method name="setAnioFabricacion" returnType="void" visibility="public">
+          <Argument type="int" name="anioFabricacion"/>
+        </Method>
+        <Method name="matriculaBarco" returnType="void" visibility="public"/>
+        <Method name="anioFabricacion" returnType="void" visibility="public"/>
+        <Method name="esloraBarco" returnType="void" visibility="public"/>
+        <Method name="caracteristicasEmbarcacion" returnType="void" visibility="public"/>
+        <Method name="alquilerAmarre" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BarcoMotor" package="Entidad" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="potenciaCV" type="int" visibility="private"/>
+        <Field name="leer" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="potenciaCV"/>
+          <Argument type="int" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFabricacion"/>
+          <Argument type="Alquiler" name="alquilerAmarre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="caracteristicasEmbarcacion" returnType="void" visibility="public"/>
+        <Method name="alquilerAmarre" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Velero" package="Entidad" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="numeroMastiles" type="int" visibility="private"/>
+        <Field name="leer" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="numeroMastiles"/>
+          <Argument type="int" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFabricacion"/>
+          <Argument type="Alquiler" name="alquilerAmarre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="caracteristicasEmbarcacion" returnType="void" visibility="public"/>
+        <Method name="alquilerAmarre" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="YateLujo" package="Entidad" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="potenciaCV" type="int" visibility="private"/>
+        <Field name="numeroCamarotes" type="int" visibility="private"/>
+        <Field name="leer" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="potenciaCV"/>
+          <Argument type="int" name="numeroCamarotes"/>
+          <Argument type="int" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFabricacion"/>
+          <Argument type="Alquiler" name="alquilerAmarre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="caracteristicasEmbarcacion" returnType="void" visibility="public"/>
+        <Method name="alquilerAmarre" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Entidad.Velero" target="Entidad.Barco"/>
+    <UseRelation source="Entidad.Alquiler" target="Entidad.Barco" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Entidad.BarcoMotor" target="Entidad.Barco"/>
+    <IsRelation name="is" source="Entidad.YateLujo" target="Entidad.Barco"/>
+    <HasRelation name="barcoAlquilado" source="Entidad.Alquiler" target="Entidad.Barco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alquilerAmarre" source="Entidad.Barco" target="Entidad.Alquiler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidad.Barco" target="Entidad.Alquiler" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

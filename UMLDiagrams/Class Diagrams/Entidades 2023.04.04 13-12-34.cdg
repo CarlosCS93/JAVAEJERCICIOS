@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidades">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="Entidades" visibility="public" xPosition="84.0" yPosition="39.0">
+      <Fields>
+        <Field name="nombreCompleto" type="String" visibility="private"/>
+        <Field name="dni" type="Integer" visibility="private"/>
+        <Field name="cantidadDeVotos" type="Integer" visibility="private"/>
+        <Field name="nombres" type="String[]" visibility="private" isStatic="true"/>
+        <Field name="apellidos" type="String[]" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreCompleto"/>
+          <Argument type="Integer" name="dni"/>
+          <Argument type="Integer" name="cantidadDeVotos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombreCompleto" returnType="String" visibility="public"/>
+        <Method name="setNombreCompleto" returnType="void" visibility="public">
+          <Argument type="String" name="nombreCompleto"/>
+        </Method>
+        <Method name="getDni" returnType="Integer" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="Integer" name="dni"/>
+        </Method>
+        <Method name="getCantidadDeVotos" returnType="Integer" visibility="public"/>
+        <Method name="setCantidadDeVotos" returnType="void" visibility="public">
+          <Argument type="Integer" name="cantidadDeVotos"/>
+        </Method>
+        <Method name="getNombres" returnType="String[]" visibility="public" isStatic="true"/>
+        <Method name="setNombres" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="nombres"/>
+        </Method>
+        <Method name="getApellidos" returnType="String[]" visibility="public" isStatic="true"/>
+        <Method name="setApellidos" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="apellidos"/>
+        </Method>
+        <Method name="crearNombreCompleto" returnType="String" visibility="public"/>
+        <Method name="crearDni" returnType="Integer" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Voto" package="Entidades" visibility="public" xPosition="642.0" yPosition="66.0">
+      <Fields>
+        <Field name="alu" type="Alumno" visibility="private"/>
+        <Field name="listaAlumnos" type="ArrayList&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Alumno" name="alu"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAlu" returnType="Alumno" visibility="public"/>
+        <Method name="setAlu" returnType="void" visibility="public">
+          <Argument type="Alumno" name="alu"/>
+        </Method>
+        <Method name="getListaAlumnos" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="setListaAlumnos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;String&gt;" name="listaAlumnos"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="alu" source="Entidades.Voto" target="Entidades.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Voto" target="Entidades.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
