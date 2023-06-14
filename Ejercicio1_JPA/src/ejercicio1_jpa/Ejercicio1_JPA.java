@@ -10,9 +10,17 @@ public class Ejercicio1_JPA {
 
     public static void main(String[] args) throws Exception {
 
-        
-     EntityManagerFactory EMF = Persistence.createEntityManagerFactory("Ejercicio1_JPAPU");
-     EntityManager em = EMF.createEntityManager();
-
-}
+        AutorServicio as = new AutorServicio();
+        //as.crearAutor();
+        as.mostrarAutores();
+        as.borrarTodo();
+        //as.crearAutor(autor1);
+        //as.crearAutor(autor2);
+        //as.crearAutor(autor3);
+//        as.mostrarAutores();
+//        as.eliminarPorAutor(autor1);
+//        as.eliminarPorAutor(autor2);
+//        as.eliminarPorAutor(autor3);
+//        as.mostrarAutores();
+    }
 }

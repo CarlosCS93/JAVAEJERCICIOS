@@ -1,22 +1,21 @@
 package Persistencia;
 
 import Entidades.Autor;
+import java.sql.SQLData;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AutorDAO extends DAO<Autor> {
 
-    
     public void crear(Autor autor) {
         super.crear(autor);
     }
 
-    
     public void editar(Autor autor) {
         super.editar(autor);
     }
 
-    public void eliminar(Long id) throws Exception {
-        Autor autor = buscarPorId(id);
+    public void eliminarPorID(Autor autor) {
         super.eliminar(autor);
     }
 
@@ -28,15 +27,20 @@ public class AutorDAO extends DAO<Autor> {
         return autor;
     }
 
-    public List<Autor> listarAutores() throws Exception {
+    public ArrayList<Autor> listarAutores() throws Exception {
         super.conectar();
-        List<Autor> autores = em.createNamedQuery("Autor.todos").getResultList();
+        List<Autor> auxi = em.createNamedQuery("Autor.todos").getResultList();
         //List<Autor> autores= em.createQuery("SELECT a FROM Autor a")
-
+        ArrayList autores = new ArrayList(auxi);
         super.desconectar();
         return autores;
     }
-    
-    
+
+    public void borrarTodo() {
+
+        super.conectar();
+      Autor autorborrado = (Autor) em.createNamedQuery("Autor.borrarTodo", Autor.class).setParameter("Autor", Autor.class);
+        super.desconectar();
+    }
 
 }

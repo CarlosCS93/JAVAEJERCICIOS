@@ -1,3 +1,8 @@
+/**
+ * AutorServicio
+ * Esta clase tiene la responsabilidad de llevar adelante las funcionalidades necesarias para
+ * administrar autores (consulta, creación, modificación y eliminación).
+ */
 package Servicio;
 
 import Entidades.Autor;
@@ -13,48 +18,55 @@ public class AutorServicio {
         this.d = d;
     }
 
-    //Crear Autores
-    public void crearAutores() throws Exception {
+    public void crearAutor() {
+
+        Autor autor = new Autor();
+        
+        for (int i = 1; i < 11; i++) {
+            autor.setId(null);
+            autor.setNombre("Autor"+ i);
+            autor.setAlta(Boolean.TRUE);
+            d.crear(autor);
+        }
+
+        
+    }
+
+    public Autor buscarAutorPorID(Long id) throws Exception {
 
         try {
-            //for (int i = 0; i < autores.length; i++) {
-
-                Autor autor1 = new Autor(1l, "Miguel Cervantes", Boolean.FALSE);
-                d.crear(autor1);
-            
-
+            Autor auxi = new Autor();
+            auxi = d.buscarPorId(id);
+            return auxi;
         } catch (Exception e) {
-            throw new Exception("El nombre del autor no puede estar vacio");
+            System.out.println("ID invalido");
+        }
+        return null;
+
+    }
+
+    public void eliminarPorAutor(Autor autor) throws Exception {
+
+        try {
+            if (autor != null) {
+                d.eliminarPorID(autor);
+            } else {
+                System.out.println("El autor no puede estar vacio");
+            }
+
+        } catch (IllegalArgumentException i) {
+            throw i;
         }
 
     }
     
-    /*public Autor buscarAutor (Long id) {
-        
-        d.buscarPorId(id);
-        
-        return
+    public void borrarTodo (){
+        d.borrarTodo();
         
     }
-    
-    
-    public void eliminarAutoresPorDni(Long id) {
-        try {
-            d.eliminar(id);
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            
-        }
-    }
-    
 
-    public void todoslosAutores() throws Exception {
+    public void mostrarAutores() throws Exception {
 
         System.out.println(d.listarAutores());
-        System.out.println("____");
-        System.out.println("**********");
-
-    }*/
-
+    }
 }

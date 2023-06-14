@@ -11,19 +11,22 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
     @NamedQuery(name = "Autor.todos", query = "SELECT a FROM Autor a"),
     @NamedQuery(name = "Autor.unoporiD", query = "SELECT a FROM Autor a WHERE a.id = :id"),
-    @NamedQuery(name = "Autor.borrartabla", query = "DROP TABLE FROM Autor = :Autor")
+    @NamedQuery(name = "Autor.porNombre", query = "SELECT a FROM Autor a Where a.nombre = :nombre"),
+    @NamedQuery(name = "Autor.borrarTodo", query = "DELETE FROM Autor")
+
 })
 @Entity
 public class Autor implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String nombre;
     private Boolean alta;
 
     public Autor() {
+
     }
 
     public Autor(Long id, String nombre, Boolean alta) {
@@ -58,7 +61,8 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
+        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta
+                + '}';
     }
 
 }
